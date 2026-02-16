@@ -3,38 +3,47 @@ import random
 
 st.set_page_config(page_title="Happy Birthday Didi 💖", layout="centered")
 
-# Custom CSS
+# Custom CSS for styling
 st.markdown("""
 <style>
-.big-text {
-    font-size: 24px;
+.title-text {
+    font-size: 36px;
     font-weight: bold;
-    color: #ff4b8b;
+    color: #ff1493;
+    text-align: center;
+}
+.wish-text {
+    font-size: 24px;
+    color: #4b0082;
+    margin-top: 20px;
     text-align: center;
 }
 </style>
 """, unsafe_allow_html=True)
 
-st.title("🎂 Birthday Wishes Generator 💖")
-st.write("For My Lovely Elder Sister 💕")
+# Main Title
+st.markdown('<p class="title-text">🎂 Happy Birthday Didi! 💖</p>', unsafe_allow_html=True)
+
+# Sub-title
+st.write("✨ You are amazing, strong, and loved beyond words! ✨")
 
 # List of unique wishes
 wishes = [
-    "You are not just my sister, you are my superhero. 💖",
-    "May your life shine brighter than all the candles on your cake! 🎂✨",
-    "Thank you for always protecting and guiding me. 💕",
-    "You are my first best friend and forever inspiration. 🌸",
-    "May happiness follow you everywhere you go. 🎉",
-    "You deserve all the love, success, and joy in the world. 💎",
-    "Your smile makes our home brighter every day. 🌟",
-    "I am lucky to have a sister like you. 💞"
+    "You are the heart of our family 💕",
+    "May your life be filled with love and laughter 🎉",
+    "Your smile lights up our world ☀️",
+    "May you achieve every dream you hold 💎",
+    "I am so blessed to have you as my sister 🌸",
+    "May today and always bring you joy 💖",
+    "You deserve all the happiness in the world 🎈",
+    "Every moment with you is a precious memory 🌟"
 ]
 
-# Button to generate wish
-if st.button("Generate Birthday Wish 🎉"):
+# Button to generate a random wish
+if st.button("Generate Special Wish 🎉"):
     st.balloons()
     random_wish = random.choice(wishes)
-    st.markdown(f'<p class="big-text">{random_wish}</p>', unsafe_allow_html=True)
+    st.markdown(f'<p class="wish-text">"{random_wish}"</p>', unsafe_allow_html=True)
 
 st.write("---")
 st.write("Made with ❤️ by Gaurav")
