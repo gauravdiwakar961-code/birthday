@@ -11,3 +11,4 @@ age = st.number_input("Enter Age", min_value=1, step=1)
 if st.button("Celebrate 🎉"):
     st.success(f"🎉 Happy {age} Birthday, {name}! 🎂")
     st.balloons()
+
