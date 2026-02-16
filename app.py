@@ -40,7 +40,7 @@ st.markdown('<p class="title">🎉 Happy Birthday Didi! 💖</p>', unsafe_allow_
 st.write("✨ Click below to generate a magical wish ✨")
 
 # ---------- Cake GIF ----------
-st.image("https://media.giphy.com/media/3o6fJ1BM7R2EBRDnxK/giphy.gif")
+st.image("https://primeravivienda.com/?v=5691107051670.gif")
 
 # ---------- Wishes ----------
 wishes = [
@@ -80,3 +80,4 @@ if st.button("Generate Special Wish 🎁"):
         '<p class="love-text">Love you forever Didi ❤️<br>– Your Little Brother 💖</p>',
         unsafe_allow_html=True
     )
+
