@@ -12,6 +12,12 @@ st.markdown("""
     font-weight: bold;
     text-align: center;
     color: #ff1493;
+    animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px pink; }
+    to { text-shadow: 0 0 25px red; }
 }
 
 .wish-box {
@@ -34,15 +40,16 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+# ---------- Dancing Cat GIF ----------
+st.image("https://gifdb.com/images/high/dancing-cat-happy-birthday-sister-vr4whx4zgno63ci4.gif",
+         use_column_width=True)
+
 # ---------- Title ----------
 st.markdown('<p class="title">🎉 Happy Birthday Didi! 💖</p>', unsafe_allow_html=True)
 
 st.write("✨ Click below to generate a magical wish ✨")
 
-# ---------- Cake GIF ----------
-st.image("https://primeravivienda.com/?v=5691107051670.gif")
-
-# ---------- Wishes ----------
+# ---------- Wishes List ----------
 wishes = [
     "You are my strength and my biggest inspiration. 💕",
     "May your life shine brighter than the stars. 🌟",
@@ -80,4 +87,3 @@ if st.button("Generate Special Wish 🎁"):
         '<p class="love-text">Love you forever Didi ❤️<br>– Your Little Brother 💖</p>',
         unsafe_allow_html=True
     )
-
