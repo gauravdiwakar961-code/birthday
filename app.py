@@ -41,7 +41,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ---------- Dancing Cat GIF ----------
-st.image("https://gifdb.com/images/high/dancing-cat-happy-birthday-sister-vr4whx4zgno63ci4.gif",
+st.image("https://media.tenor.com/T5dOGyUQBpwAAAAM/birthday-wishes-happy-birthday-wishes.gif.gif",
          use_column_width=True)
 
 # ---------- Title ----------
@@ -87,3 +87,4 @@ if st.button("Generate Special Wish 🎁"):
         '<p class="love-text">Love you forever Didi ❤️<br>– Your Little Brother 💖</p>',
         unsafe_allow_html=True
     )
+
