@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Birthday App 🎂</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial;
+            background: linear-gradient(to right, pink, lightblue);
+            padding-top: 100px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+        h1 {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🎂 Birthday Celebration App 🎂</h1>
+
+    <form method="POST">
+        <input type="text" name="name" placeholder="Enter Name" required>
+        <input type="number" name="age" placeholder="Enter Age" required>
+        <br>
+        <button type="submit">Celebrate 🎉</button>
+    </form>
+
+    {% if message %}
+        <h1>{{ message }}</h1>
+    {% endif %}
+
+</body>
+</html>
