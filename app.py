@@ -4,21 +4,14 @@ import time
 
 st.set_page_config(page_title="Happy Birthday Didi 💖", layout="centered")
 
-# ----------------- CSS Animation -----------------
+# ---------- CSS ----------
 st.markdown("""
 <style>
-.blink {
+.title {
     font-size: 36px;
     font-weight: bold;
     text-align: center;
     color: #ff1493;
-    animation: blink-animation 1.5s infinite;
-}
-
-@keyframes blink-animation {
-    0% {opacity: 1;}
-    50% {opacity: 0.5;}
-    100% {opacity: 1;}
 }
 
 .wish-box {
@@ -29,32 +22,36 @@ st.markdown("""
     padding: 20px;
     border-radius: 15px;
     background-color: #ffe6f2;
-    box-shadow: 0px 0px 20px pink;
+    box-shadow: 0px 0px 25px pink;
 }
 </style>
 """, unsafe_allow_html=True)
 
-# Title
-st.markdown('<p class="blink">🎉 Happy Birthday Didi! 💖</p>', unsafe_allow_html=True)
+st.markdown('<p class="title">🎉 Happy Birthday Didi! 💖</p>', unsafe_allow_html=True)
 
-st.write("✨ Click below to generate a magical wish ✨")
-
-# Wishes list
+# ---------- Wishes ----------
 wishes = [
-    "You are my strength, my guide, and my forever inspiration. 💕",
-    "May your life be filled with endless happiness and success. 🌸",
-    "You deserve all the love and joy in this world. 💖",
-    "Thank you for always standing beside me. 🤗",
-    "May every dream you have turn into reality. 🌟",
-    "You are not just my sister, you are my superhero. 🦸‍♀️",
-    "Your smile makes everything brighter. ☀️",
-    "May this birthday bring you peace, love, and laughter. 🎂✨"
+    "You are my strength and my biggest inspiration. 💕",
+    "May your life shine brighter than the stars. 🌟",
+    "You deserve unlimited happiness and success. 🎉",
+    "Thank you for always supporting me. 🤗",
+    "May every dream of yours come true. 💖",
+    "You are not just my sister, you are my hero. 🦸‍♀️",
+    "Your smile lights up our whole home. ☀️",
+    "May this year bring peace, love and laughter. 🎂✨"
 ]
 
-# Button
+# Store last wish in session
+if "last_wish" not in st.session_state:
+    st.session_state.last_wish = ""
+
 if st.button("Generate Special Wish 🎁"):
     st.balloons()
-    wish = random.choice(wishes)
+
+    # Ensure new wish every time
+    available_wishes = [w for w in wishes if w != st.session_state.last_wish]
+    wish = random.choice(available_wishes)
+    st.session_state.last_wish = wish
 
     placeholder = st.empty()
     animated_text = ""
@@ -66,4 +63,4 @@ if st.button("Generate Special Wish 🎁"):
             f"<div class='wish-box'>{animated_text}</div>",
             unsafe_allow_html=True
         )
-        time.sleep(0.05)
+        time.sleep(0.04)
