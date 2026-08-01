@@ -122,8 +122,6 @@ if st.button("🎁 Click for a Special Birthday Wish"):
 May God always keep you smiling 😊
 <br><br>
 🎂 Enjoy your special day! 🎂
-<br><br>
-❤️ Love You Forever ❤️
 <br>
 — Your Loving Brother 🤗
 </div>
