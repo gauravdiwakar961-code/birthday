@@ -2,89 +2,132 @@ import streamlit as st
 import random
 import time
 
-st.set_page_config(page_title="Happy Birthday Didi 💖", layout="centered")
+st.set_page_config(
+    page_title="Happy Birthday Didi ❤️",
+    page_icon="🎂",
+    layout="centered"
+)
 
-# ---------- CSS ----------
+# -------------------- CSS --------------------
 st.markdown("""
 <style>
-.title {
-    font-size: 40px;
-    font-weight: bold;
-    text-align: center;
-    color: #ff1493;
-    animation: glow 1.5s ease-in-out infinite alternate;
+.stApp{
+    background: linear-gradient(135deg,#ffe6f2,#fff5cc,#e6f7ff);
 }
 
-@keyframes glow {
-    from { text-shadow: 0 0 10px pink; }
-    to { text-shadow: 0 0 25px red; }
+.title{
+    text-align:center;
+    color:#ff1493;
+    font-size:50px;
+    font-weight:bold;
+    text-shadow:2px 2px 15px #ff69b4;
 }
 
-.wish-box {
-    font-size: 24px;
-    color: #4b0082;
-    text-align: center;
-    margin-top: 20px;
-    padding: 20px;
-    border-radius: 20px;
-    background-color: #ffe6f2;
-    box-shadow: 0px 0px 25px hotpink;
+.sub{
+    text-align:center;
+    color:#8a2be2;
+    font-size:22px;
 }
 
-.love-text {
-    text-align: center;
-    font-size: 22px;
-    color: #d63384;
-    margin-top: 30px;
+.wish{
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0px 0px 20px hotpink;
+    color:#4b0082;
+    font-size:24px;
+    text-align:center;
+    margin-top:20px;
+}
+
+.footer{
+    text-align:center;
+    color:#d63384;
+    font-size:24px;
+    margin-top:30px;
+    font-weight:bold;
 }
 </style>
 """, unsafe_allow_html=True)
 
-# ---------- Dancing Cat GIF ----------
-st.image("https://media.tenor.com/T5dOGyUQBpwAAAAM/birthday-wishes-happy-birthday-wishes.gif.gif",
-         use_column_width=True)
+# -------------------- Balloons --------------------
+st.balloons()
 
-# ---------- Title ----------
-st.markdown('<p class="title">🎉 Happy Birthday Didi! 💖</p>', unsafe_allow_html=True)
+# -------------------- GIF --------------------
+st.image(
+    "https://media.tenor.com/5bC5P8v0fVIAAAAM/happy-birthday.gif",
+    use_container_width=True
+)
 
-st.write("✨ Click below to generate a magical wish ✨")
+# -------------------- Title --------------------
+st.markdown("<div class='title'>🎉 HAPPY BIRTHDAY DIDI 🎂</div>", unsafe_allow_html=True)
 
-# ---------- Wishes List ----------
+st.markdown(
+    "<div class='sub'>💖 Wishing you endless happiness, success and love 💖</div>",
+    unsafe_allow_html=True
+)
+
+st.write("")
+
+# -------------------- Wishes --------------------
 wishes = [
-    "You are my strength and my biggest inspiration. 💕",
-    "May your life shine brighter than the stars. 🌟",
-    "You deserve unlimited happiness and success. 🎉",
-    "Thank you for always supporting me. 🤗",
-    "May every dream of yours come true. 💖",
-    "You are not just my sister, you are my hero. 🦸‍♀️",
-    "Your smile lights up our whole home. ☀️",
-    "May this year bring peace, love and laughter. 🎂✨"
+
+"🌸 Dear Didi, may your life always be filled with happiness, love and beautiful memories.",
+
+"💖 Thank you for always supporting and caring for me. You are truly the best sister.",
+
+"🌟 May God bless you with good health, success, peace and endless smiles.",
+
+"🎂 I pray every dream in your heart comes true. You deserve all the happiness in the world.",
+
+"❤️ You are not only my sister, you are my best friend and my biggest strength.",
+
+"✨ May your smile always shine brighter than the stars.",
+
+"🎁 Wishing you a wonderful birthday full of love, laughter and lots of cake.",
+
+"🥳 Happy Birthday to the most amazing Didi in the world!"
 ]
 
-if "last_wish" not in st.session_state:
-    st.session_state.last_wish = ""
+if "last" not in st.session_state:
+    st.session_state.last = ""
 
-# ---------- Button ----------
-if st.button("Generate Special Wish 🎁"):
-    st.balloons()
+# -------------------- Button --------------------
+if st.button("🎁 Click for a Special Birthday Wish"):
 
-    available = [w for w in wishes if w != st.session_state.last_wish]
+    available = [i for i in wishes if i != st.session_state.last]
+
     wish = random.choice(available)
-    st.session_state.last_wish = wish
+
+    st.session_state.last = wish
 
     placeholder = st.empty()
-    animated_text = ""
 
-    for char in wish:
-        animated_text += char
+    text = ""
+
+    for ch in wish:
+        text += ch
         placeholder.markdown(
-            f"<div class='wish-box'>{animated_text}</div>",
+            f"<div class='wish'>{text}</div>",
             unsafe_allow_html=True
         )
-        time.sleep(0.04)
+        time.sleep(0.03)
 
-    st.markdown(
-        '<p class="love-text">Love you forever Didi ❤️<br>– Your Little Brother 💖</p>',
-        unsafe_allow_html=True
-    )
+    st.balloons()
 
+    st.markdown("""
+<div class='footer'>
+💖 Happy Birthday Once Again Didi 💖
+<br><br>
+May God always keep you smiling 😊
+<br><br>
+🎂 Enjoy your special day! 🎂
+<br><br>
+❤️ Love You Forever ❤️
+<br>
+— Your Loving Brother 🤗
+</div>
+""", unsafe_allow_html=True)
+
+st.write("")
+st.write("⭐ Made with Love ⭐")
