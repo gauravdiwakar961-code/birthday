@@ -1,38 +1,188 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Birthday App 🎂</title>
-    <style>
-        body {
-            text-align: center;
-            font-family: Arial;
-            background: linear-gradient(to right, pink, lightblue);
-            padding-top: 100px;
-        }
-        input, button {
-            padding: 10px;
-            margin: 10px;
-            font-size: 16px;
-        }
-        h1 {
-            color: white;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎂 Happy Birthday Didi ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#ff9ec4,#ffd6e8,#fff5c3,#cceeff);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    overflow:hidden;
+}
+
+.card{
+    width:420px;
+    background:white;
+    padding:30px;
+    border-radius:25px;
+    text-align:center;
+    box-shadow:0 0 30px rgba(255,20,147,.4);
+    animation:zoom 1s;
+}
+
+@keyframes zoom{
+    from{
+        transform:scale(.7);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+.profile{
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    border:6px solid hotpink;
+    object-fit:cover;
+    box-shadow:0 0 25px hotpink;
+}
+
+h1{
+    color:#ff1493;
+    margin-top:20px;
+}
+
+.message{
+    margin-top:20px;
+    color:#444;
+    font-size:19px;
+    line-height:1.7;
+}
+
+button{
+    margin-top:25px;
+    padding:14px 35px;
+    font-size:18px;
+    border:none;
+    border-radius:40px;
+    background:#ff1493;
+    color:white;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:#d4006d;
+    transform:scale(1.05);
+}
+
+#wish{
+    margin-top:25px;
+    color:#8a2be2;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.footer{
+    margin-top:25px;
+    color:#ff1493;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.balloon{
+    position:fixed;
+    bottom:-100px;
+    font-size:35px;
+    animation:float 8s linear infinite;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(0);
+    }
+    to{
+        transform:translateY(-120vh);
+    }
+}
+</style>
 </head>
+
 <body>
 
-    <h1>🎂 Birthday Celebration App 🎂</h1>
+<div class="card">
 
-    <form method="POST">
-        <input type="text" name="name" placeholder="Enter Name" required>
-        <input type="number" name="age" placeholder="Enter Age" required>
-        <br>
-        <button type="submit">Celebrate 🎉</button>
-    </form>
+<img src="didi.jpg" class="profile" alt="Didi">
 
-    {% if message %}
-        <h1>{{ message }}</h1>
-    {% endif %}
+<h1>🎉 Happy Birthday Didi 🎂</h1>
+
+<p class="message">
+💖 Wishing you a day filled with love, happiness and laughter.<br><br>
+
+Thank you for always caring for me, supporting me, and standing by my side.
+You are not just my sister—you are my best friend and my biggest strength. ❤️
+</p>
+
+<button onclick="celebrate()">
+🎁 Click Here
+</button>
+
+<div id="wish"></div>
+
+<div class="footer">
+❤️ Love You Forever Didi ❤️
+<br>
+🤗 — Your Brother
+</div>
+
+</div>
+
+<script>
+
+const wishes=[
+"🌸 May all your dreams come true!",
+"🎂 May God always bless you with happiness!",
+"💖 Keep smiling because your smile is priceless.",
+"🌟 Wishing you endless joy and success!",
+"🎉 You are the best sister in the world!",
+"❤️ Thank you for always being there for me.",
+"🎁 Have a wonderful birthday full of love and happiness!"
+];
+
+function celebrate(){
+
+let random=wishes[Math.floor(Math.random()*wishes.length)];
+
+document.getElementById("wish").innerHTML=random;
+
+for(let i=0;i<30;i++){
+
+let balloon=document.createElement("div");
+
+balloon.className="balloon";
+
+balloon.innerHTML=["🎈","🎉","🎊","💖","🎂"][Math.floor(Math.random()*5)];
+
+balloon.style.left=Math.random()*100+"vw";
+
+balloon.style.animationDuration=(Math.random()*4+5)+"s";
+
+document.body.appendChild(balloon);
+
+setTimeout(()=>{
+balloon.remove();
+},8000);
+
+}
+
+}
+
+</script>
 
 </body>
 </html>
